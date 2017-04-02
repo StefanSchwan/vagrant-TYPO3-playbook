@@ -1,0 +1,16 @@
+---
+- hosts: all
+  remote_user: vagrant
+  become: yes
+  gather_facts: no
+  vars:
+  pre_tasks:
+    - name: install python
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+    - name: gather facts
+      setup:
+    - name: update apt cache
+      apt: update_cache=yes
+  roles:
+    - webserver
+    - database

@@ -1,0 +1,20 @@
+---
+- name: install apache
+  apt: name=apache2 state=present
+- name: Setup the virtual host
+  template:
+    src=typo3.vhost.conf.j2
+    dest=/etc/apache2/sites-available/typo3.conf
+- name: Remove default virtual host
+  file:
+    path=/etc/apache2/sites-enabled/000-default.conf
+    state=absent
+  notify:
+    - reload apache
+- name: Enable new vagrant virtual host
+  file:
+    src=/etc/apache2/sites-available/typo3.conf
+    dest=/etc/apache2/sites-enabled/typo3.conf
+    state=link
+  notify:
+    - reload apache

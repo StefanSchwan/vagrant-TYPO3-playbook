@@ -1,0 +1,9 @@
+- name: install composer
+  shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  args:
+    creates: /usr/local/bin/composer
+
+- name: composer install project
+  composer:
+    command: install
+    working_dir: {{ ApacheWorkingDir }}

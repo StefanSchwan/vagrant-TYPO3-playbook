@@ -1,0 +1,10 @@
+---
+- name: install base packages
+  apt: name={{ item }} update_cache=yes state=latest
+  with_items:
+    - git
+    - vim
+    - less
+- include: apache.yml
+- include: php.yml
+- include: composer.json

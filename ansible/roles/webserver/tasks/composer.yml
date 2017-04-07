@@ -6,4 +6,12 @@
 - name: composer install project
   composer:
     command: install
-    working_dir: {{ ApacheWorkingDir }}
+    working_dir: "{{ ApacheWorkingDir }}"
+  environment:
+    PATH: /var/www/html/vendor/bin:{{ ansible_env.PATH }}
+
+- name: add {{ ApacheWorkingDir }}/vendor/bin to path
+  lineinfile:
+    dest=/etc/environment
+    state=present
+    line="PATH={{ ApacheWorkingDir }}/vendor/bin:$PATH"

@@ -19,6 +19,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/helhum/typo3_console.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helhum/dotenv-connector.git"
     }
   ],
   "extra": {
@@ -28,10 +32,16 @@
     },
     "helhum/typo3-console": {
       "install-extension-dummy": false
+    },
+    "helhum/dotenv-connector": {
+      "env-dir": "",
+      "allow-overrides": true,
+      "cache-dir": "var/cache"
     }
   },
   "require": {
-    "typo3/cms": "^8.6",
-    "helhum/typo3-console": "~4.0"
+    "typo3/cms": "^8.7",
+    "helhum/typo3-console": "~4.0",
+    "helhum/dotenv-connector": "1.1.0"
   }
 }

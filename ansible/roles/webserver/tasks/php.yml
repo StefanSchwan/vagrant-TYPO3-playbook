@@ -12,3 +12,5 @@
     - php7.0-xml
     - php7.0-zip
     - libapache2-mod-php7.0
+  notify:
+    - reload apache

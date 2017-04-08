@@ -14,3 +14,9 @@
       --site-name {{ TYPO3SiteName }}
   args:
     creates: "{{ ApacheDocumentRoot }}/typo3conf/LocalConfiguration.php"
+
+- name: Write the dotenv
+  template:
+    src=typo3-vagrant.env.j2
+    dest="{{ApacheWorkingDir}}"/typo3-vagrant.env
+    

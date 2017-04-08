@@ -8,6 +8,7 @@
     command: install
     working_dir: "{{ ApacheWorkingDir }}"
 
+
 - name: add {{VendorBinPath}} to path
   lineinfile: >
     dest=/etc/environment

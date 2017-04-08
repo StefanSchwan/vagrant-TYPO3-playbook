@@ -1,0 +1,13 @@
+- name: Setup TYPO3
+  command: >
+    /var/www/html/vendor/bin/typo3cms install:setup
+      --non-interactive
+      --database-user-name {{ MySqlDatabaseUser }}
+      --database-user-password {{ MySqlDatabasePassword }}
+      --database-host-name localhost
+      --database-name {{ MySqlDatabaseName }}
+      --use-existing-database {{ MySqlDatabaseName }}
+      --admin-user-name {{ TYPO3AdminUsername }}
+      --admin-password {{ TYPO3AdminPassword }}
+      --site-name {{ TYPO3SiteName }}
+  creates: "{{ ApacheDocumentRoot }}/typo3conf/LocalConfiguration.php"

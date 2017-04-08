@@ -7,11 +7,24 @@
   composer:
     command: install
     working_dir: "{{ ApacheWorkingDir }}"
-  environment:
-    PATH: /var/www/html/vendor/bin:{{ ansible_env.PATH }}
 
-- name: add {{ ApacheWorkingDir }}/vendor/bin to path
-  lineinfile:
+- name: add {{extra_path}} to path
+  lineinfile: >
     dest=/etc/environment
     state=present
-    line="PATH={{ ApacheWorkingDir }}/vendor/bin:$PATH"
+    backrefs=yes
+    regexp='PATH=(["]*)((?!.*?{{extra_path}}).*?)(["]*)$'
+    line="PATH=\1\2:{{extra_path}}\3"
+- name: Setup TYPO3
+  command: >
+    /var/www/html/vendor/bin/typo3cms install:setup
+      --non-interactive
+      --database-user-name {{ MySqlDatabaseUser }}
+      --database-user-password {{ MySqlDatabasePassword }}
+      --database-host-name localhost
+      --database-name {{ MySqlDatabaseName }}
+      --use-existing-database {{ MySqlDatabaseName }}
+      --admin-user-name admin
+      --admin-password passWord45
+      --site-name site
+  creates: "{{ ApacheDocumentRoot }}/typo3conf/LocalConfiguration.php"

@@ -90,7 +90,8 @@ Vagrant.configure("2") do |config|
         MySqlDatabasePassword: 'geheim',
         ApacheWorkingDir: '/var/www/html',
         ApacheDocumentRoot: '/var/www/html/docroot',
-        ApacheServerName: 'typo3.local'
+        ApacheServerName: 'typo3.local',
+        extra_path: '/var/www/html/vendor/bin'
       }
     end
 

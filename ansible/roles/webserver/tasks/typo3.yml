@@ -1,4 +1,6 @@
-- name: Setup TYPO3
+---
+- name: Setup TYPO3 {{ ApacheDocumentRoot }}/typo3conf/LocalConfiguration.php
+
   command: >
     /var/www/html/vendor/bin/typo3cms install:setup
       --non-interactive
@@ -10,4 +12,5 @@
       --admin-user-name {{ TYPO3AdminUsername }}
       --admin-password {{ TYPO3AdminPassword }}
       --site-name {{ TYPO3SiteName }}
-  creates: "{{ ApacheDocumentRoot }}/typo3conf/LocalConfiguration.php"
+  args:
+    creates: "{{ ApacheDocumentRoot }}/typo3conf/LocalConfiguration.php"

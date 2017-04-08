@@ -2,4 +2,4 @@
 code/
 !code/docroot/.gitkeep
 !code/docroot/composer.json
-!code/.vagrant
+.vagrant

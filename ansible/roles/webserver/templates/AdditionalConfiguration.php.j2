@@ -1,0 +1,11 @@
+$loader = new Dotenv\Dotenv(__DIR__ . '/../../', '.typo3.env');
+$loader->load();
+$loader = new Dotenv\Dotenv(__DIR__ . '/../../');
+$loader->overload();
+
+$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['dbname'] = getenv('TYPO3__DB__database');
+$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['host'] = getenv('TYPO3__DB__host');
+$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['password'] = getenv('TYPO3__DB__password');
+$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['user'] = getenv('TYPO3__DB__username');
+$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['driver'] = "mysqli";
+$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['port'] = "3306";

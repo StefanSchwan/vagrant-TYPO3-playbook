@@ -15,8 +15,17 @@
   args:
     creates: "{{ ApacheDocumentRoot }}/typo3conf/LocalConfiguration.php"
 
+- name: Remove Database Infos from LocalConfiguration.php"
+  command: >
+    /var/www/html/vendor/bin/typo3cms configuration:remove DB
+    --force
+
 - name: Write the dotenv
   template:
     src=typo3-vagrant.env.j2
-    dest="{{ApacheWorkingDir}}"/typo3-vagrant.env
-    
+    dest={{ApacheWorkingDir}}/.env
+
+- name: Write the Additional-Configuration
+  template:
+    src=AdditionalConfiguration.php.j2
+    dest={{ApacheWorkingDir}}/typo3conf/AdditionalConfiguration.php

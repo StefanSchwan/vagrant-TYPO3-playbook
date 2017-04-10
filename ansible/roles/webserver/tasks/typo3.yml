@@ -23,9 +23,9 @@
 - name: Write the dotenv
   template:
     src=typo3-vagrant.env.j2
-    dest={{ApacheWorkingDir}}/.env
+    dest={{ApacheWorkingDir}}/.typo3.env
 
 - name: Write the Additional-Configuration
   template:
     src=AdditionalConfiguration.php.j2
-    dest={{ApacheWorkingDir}}/typo3conf/AdditionalConfiguration.php
+    dest={{ApacheDocumentRoot}}/typo3conf/AdditionalConfiguration.php

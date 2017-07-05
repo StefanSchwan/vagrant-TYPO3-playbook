@@ -8,7 +8,7 @@
   ],
   "config": {
     "github-oauth": {
-      "github.com": "583476a5d0f4252285a02b294b09d141f62c61a8"
+      "github.com": "36c763e178dbea3933ffdd2219b6f46d99b0c497"
     }
   },
   "repositories": [
@@ -40,8 +40,8 @@
   },
   "require": {
     "typo3/cms": "^8.7",
-    "helhum/typo3-console": "~4.0",
-    "helhum/dotenv-connector": "1.1.0",
-    "helhum/config-loader": "^0.1"
+    "helhum/typo3-console": "~4.6",
+    "helhum/dotenv-connector": "~2.0",
+    "helhum/config-loader": "~0.5"
   }
 }

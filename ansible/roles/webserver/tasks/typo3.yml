@@ -23,7 +23,7 @@
 - name: Write the dotenv
   template:
     src=typo3-vagrant.env.j2
-    dest={{ApacheWorkingDir}}/.typo3.env
+    dest={{ApacheWorkingDir}}/.env
 
 - name: Write the Additional-Configuration
   template:

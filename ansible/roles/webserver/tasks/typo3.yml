@@ -6,7 +6,7 @@
       --non-interactive
       --database-user-name {{ MySqlDatabaseUser }}
       --database-user-password {{ MySqlDatabasePassword }}
-      --database-host-name localhost
+      --database-host-name 127.0.0.1
       --database-name {{ MySqlDatabaseName }}
       --use-existing-database {{ MySqlDatabaseName }}
       --admin-user-name {{ TYPO3AdminUsername }}

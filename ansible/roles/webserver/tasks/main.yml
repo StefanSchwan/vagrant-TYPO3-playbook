@@ -7,5 +7,5 @@
     - less
 - include: apache.yml
 - include: php.yml
-- include: composer.yml
-- include: typo3.yml
+# - include: composer.yml
+# - include: typo3.yml

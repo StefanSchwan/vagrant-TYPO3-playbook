@@ -49,17 +49,12 @@ Vagrant.configure("2") do |config|
       ansible.playbook = "ansible/playbook.yml"
       ansible.extra_vars = {
         MySqlRootPassword: 'rootpass',
-        MySqlDatabaseName: 'typo3',
-        MySqlDatabaseUser: 'typo3',
+        MySqlDatabaseName: 'drupal',
+        MySqlDatabaseUser: 'drupal',
         MySqlDatabasePassword: 'geheim',
         ApacheWorkingDir: '/var/www/html',
         ApacheDocumentRoot: '/var/www/html/docroot',
-        ApacheServerName: 'typo3.local',
-        VendorBinPath: '/var/www/html/vendor/bin',
-        TYPO3AdminUsername: 't3admin',
-        TYPO3AdminPassword: 'S3cur3Am!nPazz',
-        TYPO3SiteName: 'AwesomeSite'
-
+        ApacheServerName: 'drupal.local'
       }
     end
 

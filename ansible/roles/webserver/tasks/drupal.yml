@@ -2,6 +2,6 @@
   become: yes
   become_user: ubuntu
   shell: >
-    composer create-project drupal-composer/drupal-project:8.x-dev mastering --stability dev --no-interaction
+    composer create-project drupal-composer/drupal-project:8.x-dev {{ ProjectName }} --stability dev --no-interaction
   args:
     chdir: "{{ ApacheRoot }}"

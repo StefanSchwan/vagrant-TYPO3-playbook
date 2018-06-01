@@ -11,6 +11,9 @@
       setup:
     - name: update apt cache
       apt: update_cache=yes
+    - name: concat vars
+      include_vars:
+        file: vars.yml
   roles:
     - database
     - webserver

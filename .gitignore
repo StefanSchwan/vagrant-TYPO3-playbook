@@ -1,5 +1,5 @@
 *.log
 code/
 !code/docroot/.gitkeep
-!code/docroot/composer.json
 .vagrant
+.auth.json

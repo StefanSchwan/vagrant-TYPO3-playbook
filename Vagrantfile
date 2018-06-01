@@ -53,7 +53,6 @@ Vagrant.configure("2") do |config|
         MySqlDatabaseUser: 'drupal',
         MySqlDatabasePassword: 'geheim',
         ApacheWorkingDir: '/var/www/',
-        ApacheDocumentRoot: '/var/www/',
         ApacheRoot: '/var/www',
         ApacheServerName: 'drupal.local',
         ProjectName: 'drupal'

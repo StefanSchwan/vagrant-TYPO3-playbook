@@ -2,9 +2,9 @@
 	ServerName {{ ApacheServerName }}
 
 	ServerAdmin webmaster@localhost
-	DocumentRoot {{ ApacheDocumentRoot }}
+	DocumentRoot {{ ApacheDocumentRoot }}/web
 
-	<Directory {{ ApacheDocumentRoot }}>
+	<Directory {{ ApacheDocumentRoot }}/web>
   	Require all granted
 	</Directory>
 

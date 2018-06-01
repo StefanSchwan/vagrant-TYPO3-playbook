@@ -17,7 +17,7 @@
   mysql_db: encoding=utf8 name={{ MySqlDatabaseName }} login_password="{{MySqlRootPassword}}" login_user=root state=present
 
 - name: Create MySQL User
-  mysql_user: name={{ MySqlDatabaseName }} login_password="{{MySqlRootPassword}}" login_user=root password={{ MySqlDatabasePassword }} priv=typo3.*:ALL state=present
+  mysql_user: name={{ MySqlDatabaseName }} login_password="{{MySqlRootPassword}}" login_user=root password={{ MySqlDatabasePassword }} priv={{ MySqlDatabaseName }}.*:ALL state=present
 
 - name: Deletes anonymous MySQL server user for localhost
   mysql_user: user="" state="absent" login_password="{{ MySqlRootPassword }}" login_user=root

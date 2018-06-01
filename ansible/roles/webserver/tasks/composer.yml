@@ -16,10 +16,10 @@
 #     working_dir: "{{ ApacheWorkingDir }}"
 #
 #
-# - name: add {{VendorBinPath}} to path
-#   lineinfile: >
-#     dest=/etc/environment
-#     state=present
-#     backrefs=yes
-#     regexp='PATH=(["]*)((?!.*?{{VendorBinPath}}).*?)(["]*)$'
-#     line="PATH=\1\2:{{VendorBinPath}}\3"
+- name: add {{ VendorBinPath }} to PATH
+  lineinfile: >
+    dest=/etc/environment
+    state=present
+    backrefs=yes
+    regexp='PATH=(["]*)((?!.*?{{VendorBinPath}}).*?)(["]*)$'
+    line="PATH=\1\2:{{VendorBinPath}}\3"

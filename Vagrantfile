@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
 
   end
 
-  config.vm.synced_folder "code/", "/var/www/html/", :nfs => true
+  config.vm.synced_folder "code/", "/var/www/", :nfs => true
 
   config.vm.box = "ubuntu/xenial64"
   config.ssh.insert_key = true

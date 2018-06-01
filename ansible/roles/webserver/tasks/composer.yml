@@ -3,16 +3,23 @@
   args:
     creates: /usr/local/bin/composer
 
-- name: composer install project
-  composer:
-    command: install
-    working_dir: "{{ ApacheWorkingDir }}"
+- name: set rights for composer
+  file:
+    path: /usr/local/bin/composer
+    owner: ubuntu
+    group: ubuntu
+    mode: 0775
 
-
-- name: add {{VendorBinPath}} to path
-  lineinfile: >
-    dest=/etc/environment
-    state=present
-    backrefs=yes
-    regexp='PATH=(["]*)((?!.*?{{VendorBinPath}}).*?)(["]*)$'
-    line="PATH=\1\2:{{VendorBinPath}}\3"
+# - name: composer install project
+#   composer:
+#     command: install
+#     working_dir: "{{ ApacheWorkingDir }}"
+#
+#
+# - name: add {{VendorBinPath}} to path
+#   lineinfile: >
+#     dest=/etc/environment
+#     state=present
+#     backrefs=yes
+#     regexp='PATH=(["]*)((?!.*?{{VendorBinPath}}).*?)(["]*)$'
+#     line="PATH=\1\2:{{VendorBinPath}}\3"

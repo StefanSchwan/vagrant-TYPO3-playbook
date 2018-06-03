@@ -8,8 +8,8 @@
     chdir: "{{ ApacheRoot }}"
     creates: "{{ ApacheDocumentRoot }}"
 
-- debug:
-    msg: "variable is {{ composerrun }} {{ composerrun.changed }}"
+# - debug:
+#     msg: "variable is {{ composerrun }} {{ composerrun.changed }}"
 
 - name: Install {{ ProjectName }} using Drupal Console
   become: yes

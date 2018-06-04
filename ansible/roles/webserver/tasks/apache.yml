@@ -11,6 +11,13 @@
     state=absent
   notify:
     - reload apache
+- name: Enable the rewrite module
+  file:
+    src=/etc/apache2/mods-available/rewrite.load
+    dest=/etc/apache2/mods-enabled/rewrite.load
+    state=link
+  notify:
+    - reload apache
 - name: Enable new vagrant virtual host
   file:
     src=/etc/apache2/sites-available/{{ ProjectName }}.conf

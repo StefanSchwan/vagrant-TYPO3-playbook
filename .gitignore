@@ -1,5 +1,7 @@
 *.log
 code/
-!code/docroot/.gitkeep
+!code/.gitkeep
 .vagrant
 .auth.json
+.idea/
+1

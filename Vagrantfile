@@ -55,7 +55,13 @@ Vagrant.configure("2") do |config|
         ApacheWorkingDir: '/var/www/',
         ApacheRoot: '/var/www',
         ApacheServerName: 'drupal.local',
-        ProjectName: 'drupal'
+        ProjectName: 'drupal',
+        DrupalDbPrefix: '',
+        DrupalSiteName: 'Drupal 8 Vagrantsite',
+        DrupalSiteMail: 'admin@example.com',
+        DrupalAdminName: 'admin',
+        DrupalAdminEmail: 'admin@example.com',
+        DrupalAdminPassword: 'geheim'
       }
     end
 

@@ -23,11 +23,11 @@
       --db-name="{{ MySqlDatabaseName }}"  \
       --db-user="{{ MySqlDatabaseUser }}"  \
       --db-pass="{{ MySqlDatabasePassword }}"  \
-      --db-prefix="" \
-      --site-name="Drupal 8"  \
-      --site-mail="admin@example.com"  \
-      --account-name="admin"  \
-      --account-mail="admin@example.com"  \
-      --account-pass="p455w0rd"
+      --db-prefix="{{ DrupalDbPrefix }}" \
+      --site-name="{{ DrupalSiteName }}"  \
+      --site-mail="{{ DrupalSiteMail }}"  \
+      --account-name="{{ DrupalAdminName }}"  \
+      --account-mail="{{ DrupalAdminEmail }}"  \
+    --account-pass="{{ DrupalAdminPassword }}"
   args:
     chdir: "{{ ApacheDocumentRoot }}/web"

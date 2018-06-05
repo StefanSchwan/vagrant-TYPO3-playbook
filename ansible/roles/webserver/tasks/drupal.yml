@@ -8,6 +8,12 @@
     chdir: "{{ ApacheRoot }}"
     creates: "{{ ApacheDocumentRoot }}"
 
+- name: Handle failed composer install
+  when: composerrun | failed
+  file:
+    state: absent
+    path: "{{ ApacheDocumentRoot }}"
+
 # - debug:
 #     msg: "variable is {{ composerrun }} {{ composerrun.changed }}"
 
@@ -28,6 +34,8 @@
       --site-mail="{{ DrupalSiteMail }}"  \
       --account-name="{{ DrupalAdminName }}"  \
       --account-mail="{{ DrupalAdminEmail }}"  \
-    --account-pass="{{ DrupalAdminPassword }}"
+      --account-pass="{{ DrupalAdminPassword }}"
   args:
     chdir: "{{ ApacheDocumentRoot }}/web"
+  notify:
+    - reload apache

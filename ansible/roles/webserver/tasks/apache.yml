@@ -25,14 +25,14 @@
     state=link
   notify:
     - reload apache
-- name: Set group permissions to {{ ApacheRoot }}
-  file:
-    path: "{{ ApacheRoot }}"
-    owner: root
-    group: www-data
-    mode: 02775
+# - name: Set group permissions to {{ ApacheRoot }}
+#   file:
+#     path: "{{ ApacheRoot }}"
+#     owner: ubuntu
+#     group: www-data
+#     mode: 02775
 - name: adding existing user ubuntu to group www-data
   user:
-    name: ubuntu
+    name: vagrant
     groups: www-data
     append: yes

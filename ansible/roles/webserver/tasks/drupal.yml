@@ -1,6 +1,6 @@
 - name: Create Composer Project
   become: yes
-  become_user: ubuntu
+  become_user: vagrant
   register: composerrun
   command: >
     composer create-project drupal-composer/drupal-project:8.x-dev {{ ProjectName }} --stability dev --no-interaction
@@ -19,21 +19,21 @@
 
 - name: Install {{ ProjectName }} using Drupal Console
   become: yes
-  become_user: ubuntu
-  when: composerrun.changed
+  become_user: vagrant
+  #when: composerrun.changed
   command: >
     drupal site:install  standard  \
-      --langcode="en"  \
-      --db-type="mysql"  \
-      --db-host="127.0.0.1"  \
-      --db-name="{{ MySqlDatabaseName }}"  \
-      --db-user="{{ MySqlDatabaseUser }}"  \
-      --db-pass="{{ MySqlDatabasePassword }}"  \
-      --db-prefix="{{ DrupalDbPrefix }}" \
-      --site-name="{{ DrupalSiteName }}"  \
-      --site-mail="{{ DrupalSiteMail }}"  \
-      --account-name="{{ DrupalAdminName }}"  \
-      --account-mail="{{ DrupalAdminEmail }}"  \
+      --langcode="en"\
+      --db-type="mysql"\
+      --db-host="127.0.0.1"\
+      --db-name="{{ MySqlDatabaseName }}"\
+      --db-user="{{ MySqlDatabaseUser }}"\
+      --db-pass="{{ MySqlDatabasePassword }}"\
+      --db-prefix="{{ DrupalDbPrefix }}"\
+      --site-name="{{ DrupalSiteName }}"\
+      --site-mail="{{ DrupalSiteMail }}"\
+      --account-name="{{ DrupalAdminName }}"\
+      --account-mail="{{ DrupalAdminEmail }}"\
       --account-pass="{{ DrupalAdminPassword }}"
   args:
     chdir: "{{ ApacheDocumentRoot }}/web"

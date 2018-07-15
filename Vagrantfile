@@ -21,9 +21,12 @@ Vagrant.configure("2") do |config|
 
   end
 
-  config.vm.synced_folder "code/", "/var/www/", :nfs => true
+  config.vm.synced_folder "code/", "/var/www/", :nfs => true, mount_options: ['rw', 'tcp'], linux__nfs_options: ['rw','no_subtree_check','all_squash','async']
+  #config.bindfs.bind_folder "/opt/www", "/var/www", owner: "ubuntu", group: "www-data", perms: "u=rwx:g=rwx:o=r"
 
-  config.vm.box = "ubuntu/xenial64"
+
+
+  config.vm.box = "ubuntu/bionic64"
   config.ssh.insert_key = true
   config.ssh.forward_agent = true
 

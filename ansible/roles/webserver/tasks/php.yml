@@ -2,17 +2,16 @@
 - name: install php
   apt: name={{ item }} update_cache=yes state=latest
   with_items:
-    - php7.0
+    - php
     - mcrypt
-    - php7.0-curl
-    - php7.0-gd
-    - php7.0-mbstring
-    - php7.0-mcrypt
-    - php7.0-mysql
-    - php7.0-soap
-    - php7.0-xml
-    - php7.0-zip
-    - libapache2-mod-php7.0
+    - php-curl
+    - php-gd
+    - php-mbstring
+    - php-mysql
+    - php-soap
+    - php-xml
+    - php-zip
+    - libapache2-mod-php
     - php-xdebug
   notify:
     - reload apache
@@ -20,13 +19,13 @@
 - name: Set the php.ini file
   template:
         src=php.ini.j2
-        dest=/etc/php/7.0/apache2/php.ini
+        dest=/etc/php/7.2/apache2/php.ini
   notify:
     - reload apache
 
 - name: Enable xdebug
   template:
         src=20-xdebug.ini.j2
-        dest=/etc/php/7.0/apache2/conf.d/20-xdebug.ini
+        dest=/etc/php/7.2/apache2/conf.d/20-xdebug.ini
   notify:
     - reload apache
